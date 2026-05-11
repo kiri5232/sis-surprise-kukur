@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#202124;
+color:white;
+overflow:hidden;
+height:100vh;
+}
+
+.page{
+position:absolute;
+width:100%;
+height:100%;
+top:0;
+left:0;
+display:none;
+overflow:auto;
+}
+
+.active{
+display:block;
+animation:fade 0.4s ease;
+}
+
+@keyframes fade{
+from{
+opacity:0;
+transform:scale(0.98);
+}
+to{
+opacity:1;
+transform:scale(1);
+}
+}
+
+/* PAGE 1 */
+
+.home{
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+height:100%;
+padding:20px;
+}
+
+.google-logo{
+font-size:78px;
+font-weight:600;
+margin-bottom:35px;
+letter-spacing:-4px;
+}
+
+.google-logo span:nth-child(1){color:#4285F4;}
+.google-logo span:nth-child(2){color:#EA4335;}
+.google-logo span:nth-child(3){color:#FBBC05;}
+.google-logo span:nth-child(4){color:#4285F4;}
+.google-logo span:nth-child(5){color:#34A853;}
+.google-logo span:nth-child(6){color:#EA4335;}
+
+.search-bar{
+width:100%;
+max-width:720px;
+background:#303134;
+height:60px;
+border-radius:50px;
+display:flex;
+align-items:center;
+padding:0 22px;
+font-size:20px;
+color:#aaa;
+box-shadow:0 2px 10px rgba(0,0,0,0.35);
+transition:0.3s;
+cursor:pointer;
+}
+
+.search-bar:hover{
+background:#3b3c3f;
+}
+
+.search-bar input{
+flex:1;
+background:none;
+border:none;
+outline:none;
+color:white;
+font-size:19px;
+margin-left:15px;
+}
+
+/* PAGE 2 */
+
+.search-page{
+padding:20px;
+}
+
+.top-search{
+background:#303134;
+border-radius:40px;
+height:58px;
+display:flex;
+align-items:center;
+padding:0 20px;
+margin-top:10px;
+box-shadow:0 2px 10px rgba(0,0,0,0.3);
+}
+
+.top-search input{
+flex:1;
+background:none;
+border:none;
+outline:none;
+color:white;
+font-size:18px;
+margin-left:12px;
+}
+
+.history{
+margin-top:20px;
+}
+
+.history-item{
+display:flex;
+align-items:center;
+padding:15px 12px;
+border-radius:14px;
+font-size:17px;
+color:#ddd;
+transition:0.25s;
+}
+
+.history-item:hover{
+background:#303134;
+transform:translateX(5px);
+}
+
+/* PAGE 3 */
+
+.result-page{
+padding:20px;
+}
+
+.result-box{
+margin-top:120px;
+padding:25px;
+border-radius:25px;
+background:#202124;
+box-shadow:0 0 20px rgba(0,0,0,0.2);
+}
+
+.result-link{
+color:#8ab4f8;
+font-size:28px;
+cursor:pointer;
+margin-bottom:12px;
+font-weight:500;
+}
+
+.result-link:hover{
+text-decoration:underline;
+}
+
+.result-desc{
+color:#ccc;
+line-height:1.8;
+font-size:17px;
+}
+
+/* PAGE 4 */
+
+.birthday-page{
+background:linear-gradient(135deg,#ffb6d9,#ff8fcf,#ffc7e5);
+overflow:hidden;
+}
+
+.hearts{
+position:fixed;
+width:100%;
+height:100%;
+pointer-events:none;
+z-index:1;
+}
+
+.heart{
+position:absolute;
+font-size:25px;
+animation:float 8s linear infinite;
+opacity:0.7;
+}
+
+@keyframes float{
+0%{
+transform:translateY(100vh) scale(0.5);
+opacity:0;
+}
+50%{
+opacity:1;
+}
+100%{
+transform:translateY(-120vh) scale(1.3);
+opacity:0;
+}
+}
+
+.birthday-content{
+position:relative;
+z-index:2;
+height:100%;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+
+.birthday-content img{
+width:290px;
+height:290px;
+object-fit:cover;
+border-radius:35px;
+border:7px solid rgba(255,255,255,0.9);
+box-shadow:0 15px 35px rgba(0,0,0,0.25);
+margin-top:20px;
+animation:pop 1s ease;
+}
+
+@keyframes pop{
+0%{
+transform:scale(0.7);
+opacity:0;
+}
+100%{
+transform:scale(1);
+opacity:1;
+}
+}
+
+.title{
+font-size:44px;
+font-weight:700;
+margin-top:25px;
+color:white;
+text-shadow:0 4px 10px rgba(0,0,0,0.25);
+}
+
+.subtitle{
+margin-top:10px;
+font-size:19px;
+color:white;
+opacity:0.95;
+}
+
+.letter-btn{
+margin-top:40px;
+background:white;
+color:#ff4da6;
+padding:18px 40px;
+border-radius:50px;
+font-size:20px;
+font-weight:600;
+cursor:pointer;
+box-shadow:0 10px 25px rgba(0,0,0,0.18);
+transition:0.3s;
+}
+
+.letter-btn:hover{
+transform:scale(1.06);
+}
+
+/* LETTER PAGE */
+
+.letter-page{
+background:linear-gradient(135deg,#ffe4f2,#ffd6eb,#fff0f7);
+overflow:auto;
+padding:30px 20px;
+}
+
+.letter-container{
+max-width:750px;
+margin:auto;
+background:white;
+padding:35px;
+border-radius:30px;
+box-shadow:0 10px 30px rgba(0,0,0,0.15);
+color:#444;
+animation:fade 0.5s ease;
+}
+
+.letter-container h1{
+color:#ff4da6;
+margin-bottom:20px;
+font-size:38px;
+text-align:center;
+}
+
+.letter-container p{
+font-size:18px;
+line-height:2;
+margin-bottom:18px;
+}
+
+.back-btn{
+position:fixed;
+top:20px;
+left:20px;
+background:white;
+color:#ff4da6;
+padding:12px 20px;
+border-radius:30px;
+font-weight:600;
+cursor:pointer;
+box-shadow:0 5px 15px rgba(0,0,0,0.15);
+z-index:10;
+}
+
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 -->
+
+<div class="page active" id="page1">
+
+<div class="home">
+
+<div class="google-logo">
+<span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span>
+</div>
+
+<div class="search-bar" onclick="openSearch()">
+🔍
+<input type="text" placeholder="Search Google or type a URL" readonly>
+🎤
+</div>
+
+</div>
+</div>
+
+<!-- PAGE 2 -->
+
+<div class="page" id="page2">
+
+<div class="search-page">
+
+<div class="top-search">
+🔍
+<input type="text" id="searchInput" placeholder="Search Google or type a URL">
+</div>
+
+<div class="history">
+
+<div class="history-item">⏰ how to fight with sis without reason 😭</div>
+
+<div class="history-item">⏰ how to set sis's friend 😎</div>
+
+<div class="history-item">⏰ best sister in the world 💖</div>
+
+<div class="history-item">⏰ why does my sister steal my snacks 🍫</div>
+
+<div class="history-item">⏰ how to annoy sister professionally 😈</div>
+
+<div class="history-item">⏰ how to make sister smile 😊</div>
+
+<div class="history-item">⏰ happy birthday kuku 🎂</div>
+
+</div>
+
+</div>
+</div>
+
+<!-- PAGE 3 -->
+
+<div class="page" id="page3">
+
+<div class="result-page">
+
+<div class="top-search">
+🔍
+<input type="text" value="happy birthday kuku" readonly>
+</div>
+
+<div class="result-box">
+
+<div class="result-link" onclick="openBirthday()">
+today is nan's birthday 💖
+</div>
+
+<div class="result-desc">
+It's 11/05 — Happy Birthday Kuku 🎂 <br>
+Click here for a special surprise ✨
+</div>
+
+</div>
+
+</div>
+</div>
+
+<!-- PAGE 4 -->
+
+<div class="page birthday-page" id="page4">
+
+<div class="hearts" id="hearts"></div>
+
+<div class="birthday-content">
+
+<img src="https://i.ibb.co/NgSPfR3d/1778493978266.png">
+
+<div class="title">
+Happy Birthday Kuku 💖
+</div>
+
+<div class="subtitle">
+My favorite human forever ✨
+</div>
+
+<div class="letter-btn" onclick="openLetter()">
+💌 Open Letter
+</div>
+
+</div>
+</div>
+
+<!-- PAGE 5 LETTER -->
+
+<div class="page letter-page" id="page5">
+
+<div class="back-btn" onclick="backToBirthday()">
+← Back
+</div>
+
+<div class="letter-container">
+
+<h1>Dear Kuku 💖</h1>
+
+<p>
+Thank you for being the most annoying,
+funniest and caring sister ever 😭✨
+</p>
+
+<p>
+Sometimes we fight for no reason,
+sometimes we laugh till our stomach hurts,
+but life without you would honestly feel empty.
+</p>
+
+<p>
+You're not just my sister,
+you're my built-in best friend 😎💖
+</p>
+
+<p>
+I hope your smile never fades,
+your dreams come true,
+and your life becomes full of happiness,
+love and endless chocolates 🍫✨
+</p>
+
+<p>
+Stay cute, stay crazy,
+and always keep shining 🌸
+</p>
+
+<p style="text-align:center;font-weight:600;font-size:22px;color:#ff4da6;">
+Happy Birthday Kuku 🎂💖
+</p>
+
+</div>
+
+</div>
+
+<script>
+
+function hideAllPages(){
+document.querySelectorAll('.page').forEach(page=>{
+page.classList.remove('active');
+});
+}
+
+function openSearch(){
+hideAllPages();
+document.getElementById('page2').classList.add('active');
+}
+
+const input=document.getElementById('searchInput');
+
+input.addEventListener('input',()=>{
+
+if(input.value.length>0){
+
+setTimeout(()=>{
+hideAllPages();
+document.getElementById('page3').classList.add('active');
+},700);
+
+}
+
+});
+
+function openBirthday(){
+hideAllPages();
+document.getElementById('page4').classList.add('active');
+}
+
+function openLetter(){
+hideAllPages();
+document.getElementById('page5').classList.add('active');
+}
+
+function backToBirthday(){
+hideAllPages();
+document.getElementById('page4').classList.add('active');
+}
+
+/* FLOATING HEARTS */
+
+const hearts=document.getElementById('hearts');
+
+for(let i=0;i<35;i++){
+
+const heart=document.createElement('div');
+
+heart.classList.add('heart');
+
+heart.innerHTML='💖';
+
+heart.style.left=Math.random()*100+'vw';
+
+heart.style.animationDuration=(Math.random()*5+5)+'s';
+
+heart.style.fontSize=(Math.random()*20+15)+'px';
+
+heart.style.animationDelay=Math.random()*5+'s';
+
+hearts.appendChild(heart);
+
+}
+
+</script>
+
+</body>
+  </html>
